@@ -1,0 +1,24 @@
+1
+gonzalez  mariano
+23  8492
+2
+perez  ivan
+21  -3028
+3
+benitez  pedro
+71  -6996
+4
+marchiol  anto
+33  18540
+5
+weismuller  jorge
+90  -12436
+6
+apellidoNoDni  nomNoDni
+40  0
+11
+apeNuevo1  nomNuevo1
+50  30060
+12
+apeNuevo2  nomNuevo2
+60  3052

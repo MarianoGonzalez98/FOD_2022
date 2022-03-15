@@ -1,0 +1,6 @@
+1 30000 samsung
+10 5 Alto celular!!!
+a20
+2 20000 motorola
+12 6 Duro como el fierro
+g9plus
