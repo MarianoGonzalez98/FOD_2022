@@ -146,7 +146,8 @@ procedure modificarEdad(var arc_empleado: fEmpleado);
 	end;
 
 procedure exportarTodos(var arc_empleado:fEmpleado; var arc_text:text);
-	var
+	//Se puede hacer el assign del texto directamente adentro y text variable local
+var
 		e:rEmpleado;
 	begin
 		reset(arc_empleado);
