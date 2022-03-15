@@ -84,6 +84,7 @@ procedure listarPorDescripcion(var arc_file:fCelulares);
 		readln(cad);
 		while not eof(arc_file) do begin
 			read(arc_file,r);
+//Comparar para ver si CONTIENE
 			if cad=r.desc then 
 				with r do
 					writeln(cod,' ',precio,' ',marca,' ',stockDisp,' ',stockMin,' ',desc,' ',nombre);
