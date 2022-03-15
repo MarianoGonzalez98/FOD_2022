@@ -66,6 +66,8 @@ procedure crear(var arc_empleado: fEmpleado);
 	iii. Listar en pantalla empleados mayores de 70 años, próximos a jubilarse.
 * }
 procedure mostrarDatos(var arc_empleado:fEmpleado);
+//Hacer menu de opciones
+//Al buscar nombre o apellido, ver si coincide con alguno
 	procedure imprimirEmpleado(e: rEmpleado);
 	begin
 		writeln('Num: ',e.num,' - Nombre y apellido: ',e.nombre,' ',e.apellido,' - Edad: ',e.edad,' - DNI: ',e.dni);
