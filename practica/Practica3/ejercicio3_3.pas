@@ -91,6 +91,7 @@ procedure alta(var arc_novela:fNovelas);
 			seek(arc_novela,0);//vuelvo a cabecera
 			write(arc_novela,rCab); //escribo el nuevo indice en cabecera
 		end;
+		//agregar close
 	end;
 	
 	{ii. Modificar los datos de una novela leyendo la información desde teclado. El código de novela no puede ser modificado.} //existe?
@@ -101,8 +102,10 @@ procedure modificar(var arc_novela:fNovelas);
 		writeln('Ingrese datos de la novela a modificar');
 		leerDatos(r);
 		read(arc_novela,aux);
+		//agregar mientras no sea fin
 		while r.cod<>aux.cod do //busco la novela con el codigo correspondiente
 			read(arc_novela,aux);
+		// si es igual el codigo tal cosa
 		seek(arc_novela,filepos(arc_novela)-1);
 		write(arc_novela,r);
 	end;
@@ -118,12 +121,16 @@ procedure eliminar(var arc_novela:fNovelas);
 		write('Ingrese cod de novela a eliminar: ');
 		readln(cod);
 		read(arc_novela,rCab); // y:= leo cabecera 
+		
+		//r.cod:=rCab.cod;
+		//seguir modificando por si no existe
 		read(arc_novela,r);
-		while r.cod<>cod do  //busco elemento a borrar (x)
+		while r.cod<>cod do  //busco elemento a borrar 
 			read(arc_novela,r);
-		r.cod:=filepos(arc_novela) * -1; //guardo nrr en r y lo pasaso a negativo * (-1)
 		seek(arc_novela,(filepos(arc_novela) - 1));
-		write(arc_novela,rCab);//	escribo Y en la posicion donde estaba x
+		r.cod:= filepos(arc_novela) * (-1); //guardo nrr en r y lo pasaso a negativo * (-1)
+		//writeln('nrr de nuevo reg cabecera',r.cod);
+		write(arc_novela,rCab);//	escribo el reg cabecera en la posicion donde estaba x
 		seek(arc_novela,0);//	voy a cabecera
 		write(arc_novela,r)//	escribo el reg con el nrr en cabecera
 	end;
@@ -131,7 +138,7 @@ procedure mantenimiento(var arc_novela: fNovelas);
 	var
 		opcion:char;
 	begin
-		reset(arc_novela);
+		reset(arc_novela); //lo debo hacer en el procedimiento
 		writeln('Ingrese 1 para dar de alta una novela leyendo la información desde teclado.');
 		writeln('Ingrese 2 para modificar los datos de una novela leyendo la información desde teclado.');
 		writeln('Eliminar una novela cuyo código es ingresado por teclado.');
@@ -162,7 +169,7 @@ procedure imprimirDatos(var arc_novela: fNovelas);
 var
 	arc_novela:fNovelas;
 	opcion:char;
-begin
+begin //hacer menu iterativo
 	assign(arc_novela,'novelas.dat');
 	writeln('Ingrese "a" para crear el archivo de novelas');
 	writeln('Ingrese "b" para hacer mantenimiento del archivo de novelas');

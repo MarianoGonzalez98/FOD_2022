@@ -206,6 +206,7 @@ procedure borrarTruncando(var arc_empleado: fEmpleado);
 			posBorrar:=filepos(arc_empleado) -1; //guardo la posicion del registro a borrar
 			seek(arc_empleado,(filesize(arc_empleado) - 1)); //ubico el puntero al final del archivo
 			read(arc_empleado,r); //guardo el ultimo registro en r
+			seek(arc_empleado,(filepos(arc_empleado) - 1));
 			truncate(arc_empleado); //trunco el archivo colocando el eof en la posicion del ultimo elemento
 			seek(arc_empleado,posBorrar); //vuelvo a la posicion del archivo a sobreescribir / borrar
 			write(arc_empleado,r); // sobreescribo el archivo a borrar

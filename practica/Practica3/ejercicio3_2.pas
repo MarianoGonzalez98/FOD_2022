@@ -14,7 +14,7 @@ type
 	stri=string[20];
 	rEmpleado = record
 		cod:integer;
-		apeNombre:stri;
+		apeNombre:stri; //poner separados
 		dire:stri;
 		tel:longint;
 		dni:longint;
@@ -49,6 +49,7 @@ procedure borradoLogico(var arc_emple:fEmpleados);
 				write(arc_emple,r); //reemplaza el registro
 			end;
 		end;
+		close(arc_emple);
 	end;
 
 procedure crearArchivo(var arc_emple:fEmpleados);
